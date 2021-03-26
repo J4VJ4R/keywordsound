@@ -1,0 +1,29 @@
+body {
+  font-family: Roboto, sans-serif;
+}
+//mixins
+@mixin display($size) {
+  @if $size == small {
+    @media (max-width: 576px) { @content; }
+  }@else if $size == mobile {
+    @media (max-width: 1240px) { @content; }
+  }@else if $size == tablet-small-down {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $size == tablet-medium-up {
+    @media (min-width: 992px) { @content; }
+  }
+}
+//functions
+@function rem($value: 2rem) {
+  @return ($value / 16 * 1rem); //change from px to rem
+}
+//containers
+.container{
+  max-width: rem(1200);
+  width: 100%;
+  margin: 0 auto;
+}
+.container-fluid{
+  width: 100%;
+}
